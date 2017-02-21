@@ -8,11 +8,11 @@ export default class InstructionOutput extends Component {
 
   renderRobotLocation(robot){
       if (robot.isError){
-        return <div key={robot.id}>Error in exploration. Machine got lost.</div>
+        return <div key={robot.id} className="robot-result">Error in exploration. Machine got lost.</div>
       }else if (robot.isComplete){
-        return <div key={robot.id}>{`${robot.position_x} ${robot.position_y} ${robot.orientation}`}</div>
+        return <div key={robot.id} className="robot-result">{`${robot.position_x} ${robot.position_y} ${robot.orientation}`}</div>
       }else{
-        return <div key={robot.id}>Exploring...</div>
+        return <div key={robot.id} className="robot-result">Exploring...</div>
       }
   }
 

@@ -45,6 +45,8 @@ const inputReader = store => next => action => {
             store.dispatch({ 
                 type: ROVER_COMPLETE
             });
+            
+            i++;
         }
     }
   }else{

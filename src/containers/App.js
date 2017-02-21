@@ -5,7 +5,7 @@ import InstructionInput from '../components/InstructionInput'
 import InstructionOutput from '../components/InstructionOutput'
 import * as RoverActions from '../actions'
 
-const App = ({rovers, actions}) => (
+export const App = ({rovers, actions}) => (
   <div className="jumbotron">
     <div className="container">
       <h1>Mars Rovers</h1>

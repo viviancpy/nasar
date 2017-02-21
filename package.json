@@ -2,7 +2,11 @@
   "name": "brickx-nasar",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://viviancpy.github.io/nasar",
   "devDependencies": {
+    "enzyme": "^2.7.1",
+    "gh-pages": "^0.12.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.9.0"
   },
   "dependencies": {
@@ -18,6 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

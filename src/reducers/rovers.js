@@ -78,7 +78,8 @@ export default function rovers(state = initialState, action) {
               robot.position_x--;
               break;
           }
-          if (robot.position_x > state.size_x || robot.position_y > state.size_y){
+          if (robot.position_x > state.size_x || robot.position_y > state.size_y || 
+            robot.position_x < 0 || robot.position_y < 0 ){
             robot.isError = true;
           }
           break;
