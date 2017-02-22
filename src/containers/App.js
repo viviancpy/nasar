@@ -1,36 +1,40 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import InstructionInput from '../components/InstructionInput'
 import InstructionOutput from '../components/InstructionOutput'
 import * as RoverActions from '../actions'
 
-export const App = ({rovers, actions}) => (
-  <div className="jumbotron">
-    <div className="container">
-      <h1>Mars Rovers</h1>
-      <p>This application aims to help NASA scientists and/or engineers control the rovers to be landed Mars. To start, please enter the instructions and click Submit.</p>
-      <div className="panel panel-default">
-        <div className="panel-body">
-          <div className="row">
-              <div className="col-lg-6">
-                <InstructionInput onSubmit={actions.readInstructions} />
-              </div>
-              <div className="col-lg-6">
-                <InstructionOutput robots={rovers.robots} />
-              </div>
-          </div>
-              
-        </div>
-      </div>
-    </div>
-  </div>
-)
+export class App extends Component {
+  static propTypes = {
+    rovers: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
+  }
 
-App.propTypes = {
-  rovers: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
-}
+  render(){
+    const {actions, rovers} = this.props;
+    return (
+      <div className="jumbotron">
+          <div className="container">
+            <h1>Mars Rovers</h1>
+            <p>This application aims to help NASA scientists and/or engineers control the rovers to be landed Mars. To start, please enter the instructions and click Submit.</p>
+            <div className="panel panel-default">
+              <div className="panel-body">
+                <div className="row">
+                    <div className="col-lg-6">
+                      <InstructionInput onSubmit={actions.readInstructions} />
+                    </div>
+                    <div className="col-lg-6">
+                      <InstructionOutput robots={rovers.robots} />
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+  }
+}  
 
 const mapStateToProps = state => ({
   rovers: state.rovers
